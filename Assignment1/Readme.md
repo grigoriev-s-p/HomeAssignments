@@ -1,15 +1,15 @@
 # Assignment 1
 
 ## Author
-Grigoriev Sergey Pavlovich 25B81-mm
+Григорьев Сергей Павлович 25Б81-мм.
 
-##Contacts
+## Contacts
 st142081@student.spbu.ru
 
-##Description
+## Description
 Home assignment 1 - extended "Hello world". First says "Hello, World". After this reads a string in a cycle and says "Hello, <string>"
 
-##Build
+## Build
 make
 
 ## Run
