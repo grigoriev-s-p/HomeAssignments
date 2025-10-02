@@ -3,8 +3,8 @@
 void myproject::sayHello() {
 	std::cout << "Hello, world!" << std::endl;
 	while(true){
-		string s;
-		cin>>s;
-		cout<<"Hello, "<<s<<"!"<<endl;
+		std::string s;
+		std::cin>>s;
+		std::cout<<"Hello, "<<s<<"!"<<std::endl;
 	}
 }
