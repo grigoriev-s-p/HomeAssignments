@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * My project number one
+*/
 #include "hello.h"
 #include <iostream>
 void myproject::sayHello() {
