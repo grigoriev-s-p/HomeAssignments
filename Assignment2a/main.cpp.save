@@ -1,0 +1,10 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * Assignment 2a
+*/
+#include "assign.h"
+ int main() {
+ myproject::sayHello();
+ return 0;
+ }

@@ -1,5 +1,5 @@
 /*
-	 * Sergey Grigoriev
+ * Sergey Grigoriev
  * st142081@student.spbu.ru
  * Assignment 2a
 */
@@ -16,11 +16,8 @@ void myproject::solution(){
     std::uintmax_t size = std::filesystem::file_size("source.pdf");
     char* buffer=new char[size];
     binfile.read(buffer,size);
-    std::cout<<std::endl<<"------------"<<std::endl;
     for(int i=0;i<size/2;i++){
-        char temp=buffer[i];
-        buffer[i]=buffer[size-1-i];
-        buffer[size-1-i]=temp;
+        std::swap(buffer[i],buffer[size-1-i]);
     }
     std::ofstream file;
     file.open("temppdf.pdf",std::ios::binary|std::ios::out);
