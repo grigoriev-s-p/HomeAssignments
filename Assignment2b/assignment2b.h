@@ -1,7 +1,7 @@
 /*
  * Sergey Grigoriev
  * st142081@student.spbu.ru
- * My project number one
+ * Assignment 2b
 */
 #ifndef ASSIGNMENT2B_H
 #define ASSIGNMENT2B_H
