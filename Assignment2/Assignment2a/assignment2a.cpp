@@ -16,7 +16,7 @@ void myproject::solution(){
     std::uintmax_t size = std::filesystem::file_size("source.pdf");
     char* buffer=new char[size];
     binfile.read(buffer,size);
-    for(int i=0;i<size/2;i++){
+    for(size_t i=0;i<size/2;i++){
         std::swap(buffer[i],buffer[size-1-i]);
     }
     std::ofstream file;

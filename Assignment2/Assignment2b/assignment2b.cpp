@@ -14,7 +14,7 @@ void myproject::solution(){
 	float* stack = new float[size(s)];
 	float* top = stack - 1;
 	bool flag=false;
-	for (int i = 0; i < size(s); i++)
+	for (size_t i = 0; i < size(s); i++)
 	{
 		switch (s[i]) {
 		case ' ':
