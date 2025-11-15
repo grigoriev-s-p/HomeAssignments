@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fourth task
+*/
 #ifndef TRANSFORMER
 #define TRANSFORMER
 #include "Engine.h"

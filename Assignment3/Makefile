@@ -1,5 +1,5 @@
-PROJECT = testCheck
-EXAMPLE = Example
+PROJECT = assignment3
+MAIN = main
 
 LIBPROJECT = $(PROJECT).a
 TESTPROJECT = test-$(PROJECT)
@@ -19,7 +19,7 @@ SRCS = Autobot.cpp \
        Transformer.cpp \
        TransformerModel.cpp
 
-EXAMPLE_SRCS = Example.cpp
+MAIN_SRCS = main.cpp
 
 TEST_SRCS = AutobotTest.cpp \
             DesepticonTest.cpp \
@@ -29,7 +29,7 @@ TEST_SRCS = AutobotTest.cpp \
 DEPS = $(wildcard *.h)
 
 OBJ = $(SRCS:.cpp=.o)
-EXAMPLE_OBJ = $(EXAMPLE_SRCS:.cpp=.o)
+MAIN_OBJ = $(MAIN_SRCS:.cpp=.o)
 TEST_OBJ = $(TEST_SRCS:.cpp=.o)
 
 .PHONY: default
@@ -42,8 +42,8 @@ default: all
 $(LIBPROJECT): $(OBJ)
 	$(A) $(AFLAGS) $@ $^
 
-$(PROJECT): $(EXAMPLE_OBJ) $(LIBPROJECT)
-	$(CXX) -o $@ $(EXAMPLE_OBJ) $(LDXXFLAGS)
+$(PROJECT): $(MAIN_OBJ) $(LIBPROJECT)
+	$(CXX) -o $@ $(MAIN_OBJ) $(LDXXFLAGS)
 
 $(TESTPROJECT): $(LIBPROJECT) $(TEST_OBJ)
 	$(CXX) -o $@ $(TEST_OBJ) $(LDGTESTFLAGS)

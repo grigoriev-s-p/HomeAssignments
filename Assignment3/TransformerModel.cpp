@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fourth task
+*/
 #include "TransformerModel.h"
 TransformerModel::TransformerModel(std::string model) : _model(model) {};
 std::string TransformerModel::getModel() {

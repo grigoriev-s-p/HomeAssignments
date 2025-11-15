@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fourth task
+*/
 #include <gtest/gtest.h>
 #include "Jettroid.h"
 #include "Engine.h"

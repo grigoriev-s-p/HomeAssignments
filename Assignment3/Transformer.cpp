@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fourth task
+*/
 #include "Transformer.h"
 #include "TransformerModel.h"
 #include "Engine.h"
