@@ -27,10 +27,10 @@ public:
     ~Transformer();
 
 private:
+    std::string _name;
     int _level;
     int _strength;
     int _ammo;
-    std::string _name;
     Engine _engine;
     TransformerModel _model;
 };

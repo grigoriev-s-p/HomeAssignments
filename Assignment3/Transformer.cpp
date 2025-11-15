@@ -48,13 +48,12 @@ std::string Transformer::getModel() {
     return _model.getModel();
 }
 
-Transformer::Transformer(std::string name, int level, int strength, int ammo, Engine eng){
-    _name = name;
-    _level = level;
-    _strength = strength;
-    _ammo = ammo;
-    _engine = eng;
-    _model = "standart";
-}; 
+Transformer::Transformer(std::string name, int level, int strength, int ammo, Engine eng)
+    : _name(name),
+      _level(level),
+      _strength(strength),
+      _ammo(ammo),
+      _engine(eng),
+      _model("standart"){}
 
 Transformer::~Transformer() {};
