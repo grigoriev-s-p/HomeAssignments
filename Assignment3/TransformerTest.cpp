@@ -54,8 +54,3 @@ TEST(TransformerTest, FireAndTransformNoCrash) {
     EXPECT_NO_THROW(t.Fire());
     EXPECT_NO_THROW(t.Transform());
 }
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

@@ -60,7 +60,3 @@ TEST(JettroidTest, EngineInteraction){
     j.setEnginePower(999);
     EXPECT_EQ(j.getEnginePower(),999);
 }
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

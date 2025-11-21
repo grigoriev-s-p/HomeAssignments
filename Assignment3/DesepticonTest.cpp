@@ -60,7 +60,3 @@ TEST(DesepticonTest, EngineInteraction){
     d.setEnginePower(1111);
     EXPECT_EQ(d.getEnginePower(),1111);
 }
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

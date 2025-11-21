@@ -64,7 +64,3 @@ TEST(AutobotTest, EngineInteraction) {
     a.setEnginePower(777);
     EXPECT_EQ(a.getEnginePower(), 777);
 }
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
