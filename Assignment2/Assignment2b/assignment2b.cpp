@@ -3,13 +3,14 @@
  * st142081@student.spbu.ru
  * Assignment 2b
 */
-
 #include"assignment2b.h"
 
 #include<iostream>
 #include<string>
 void myproject::solution(){
     	std::string s;
+        bool isFraction = false;
+	float fractionDiv = 10.0f;
 	std::getline(std::cin,s);
 	float* stack = new float[size(s)];
 	float* top = stack - 1;
@@ -74,12 +75,23 @@ void myproject::solution(){
 		default:
 			if (!flag) {
 				top++;
-				*top = float(s[i] - '0');
+				*top = 0.0f;
+				flag = true;
+				isFraction = false;
+				fractionDiv = 10.0f;
 			}
-			else {
+			if (s[i] == '.') {
+				isFraction = true;
+				break;
+			}
+			if (!isFraction) {
 				*top = (*top) * 10 + float(s[i] - '0');
 			}
-			flag = true;
+			else {
+				*top = *top + float(s[i] - '0') / fractionDiv;
+				fractionDiv *= 10.0f;
+			}
+			break;
 		}
 	}
 	if (top == stack) {
@@ -90,4 +102,5 @@ void myproject::solution(){
 	}
 	delete[] stack;
 }
+
 
