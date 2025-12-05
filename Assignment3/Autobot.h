@@ -17,7 +17,7 @@ public:
     bool getIsPrime();
     void setIsPrime(bool isPrime);
 
-    Autobot(std::string name, int level, int strength, int ammo, Engine eng, int autobotIndex, bool isPrime);
+    Autobot(std::string name, int level, int strength, int ammo, Engine* eng, int autobotIndex, bool isPrime);
 
 private:
     int _autobotIndex;

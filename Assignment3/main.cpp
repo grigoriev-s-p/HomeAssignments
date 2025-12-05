@@ -9,9 +9,9 @@
 #include <iostream>
 
 int main() {
-    Engine coreEngine(100); 
+    Engine coreEngine(100);
     TransformerModel model("Default");
-    Transformer autobot("Optimus", 50, 10, 5, coreEngine);
+    Transformer autobot("Optimus", 50, 10, 5, &coreEngine);
     autobot.setModel(model.getModel());
     std::cout << "Name: " << autobot.getName() << "\n";
     std::cout << "Level: " << autobot.getLevel() << "\n";

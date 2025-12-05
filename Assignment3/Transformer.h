@@ -28,7 +28,7 @@ public:
     void setModel(std::string model);
     std::string getModel();
 
-    Transformer(std::string name, int level, int strength, int ammo, Engine eng);
+    Transformer(std::string name, int level, int strength, int ammo, Engine* eng);
     ~Transformer();
 
 private:
@@ -36,7 +36,7 @@ private:
     int _level;
     int _strength;
     int _ammo;
-    Engine _engine;
+    Engine* _engine;
     TransformerModel _model;
 };
 #endif

@@ -17,7 +17,7 @@ public:
     bool getIsEvil();
     void setIsEvil(bool isEvil);
 
-    Desepticon(std::string name, int level, int strength, int ammo, Engine eng, int DesepticonIndex, bool isEvil);
+    Desepticon(std::string name, int level, int strength, int ammo, Engine* eng, int DesepticonIndex, bool isEvil);
 
 private:
     int _DesepticonIndex;

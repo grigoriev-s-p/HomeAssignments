@@ -20,7 +20,7 @@ bool Jettroid::getIsRich() {
 void Jettroid::setIsRich(bool isRich) {
     _isRich = isRich;
 };
-Jettroid::Jettroid(std::string name, int level, int strength, int ammo, Engine eng, int money, bool isRich)
+Jettroid::Jettroid(std::string name, int level, int strength, int ammo, Engine* eng, int money, bool isRich)
     : Transformer(name, level, strength, ammo, eng),
     _money(money),
     _isRich(isRich) {}

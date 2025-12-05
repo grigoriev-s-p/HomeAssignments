@@ -17,7 +17,7 @@ public:
     bool getIsRich();
     void setIsRich(bool isRich);
 
-    Jettroid(std::string name, int level, int strength, int ammo, Engine eng, int money, bool isRich);
+    Jettroid(std::string name, int level, int strength, int ammo, Engine*eng, int money, bool isRich);
 
 private:
     int _money;

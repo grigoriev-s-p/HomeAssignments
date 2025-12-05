@@ -20,7 +20,7 @@ bool Desepticon::getIsEvil() {
 void Desepticon::setIsEvil(bool isEvil) {
     _isEvil = isEvil;
 };
-Desepticon::Desepticon(std::string name, int level, int strength, int ammo, Engine eng, int DesepticonIndex, bool isEvil)
+Desepticon::Desepticon(std::string name, int level, int strength, int ammo, Engine* eng, int DesepticonIndex, bool isEvil)
     : Transformer(name, level, strength, ammo, eng),
     _DesepticonIndex(DesepticonIndex),
     _isEvil(isEvil) {}
