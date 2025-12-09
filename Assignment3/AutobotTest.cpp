@@ -15,7 +15,7 @@ TEST(AutobotTest, ConstructorInitialization) {
         15,
         300,
         100,
-        eng,
+        &eng,
         1,      
         true    
     );
@@ -30,7 +30,7 @@ TEST(AutobotTest, ConstructorInitialization) {
 }
 TEST(AutobotTest, SettersAndGetters) {
     Engine eng(300);
-    Autobot a("Bee", 7, 150, 40, eng, 12, false);
+    Autobot a("Bee", 7, 150, 40, &eng, 12, false);
     a.setAutobotIndex(99);
     a.setIsPrime(true);
     EXPECT_EQ(a.getAutobotIndex(), 99);
@@ -38,7 +38,7 @@ TEST(AutobotTest, SettersAndGetters) {
 }
 TEST(AutobotTest, BaseClassMethodsWork) {
     Engine eng(200);
-    Autobot a("Ironhide", 8, 220, 70, eng, 5, false);
+    Autobot a("Ironhide", 8, 220, 70, &eng, 5, false);
     a.setName("Ironhide V2");
     a.setLevel(9);
     a.setStrength(230);
@@ -54,12 +54,12 @@ TEST(AutobotTest, BaseClassMethodsWork) {
 }
 TEST(AutobotTest, ScanDoesNotCrash) {
     Engine eng(100);
-    Autobot a("TestBot", 1, 10, 10, eng, 0, false);
+    Autobot a("TestBot", 1, 10, 10, &eng, 0, false);
     EXPECT_NO_THROW(a.scan());
 }
 TEST(AutobotTest, EngineInteraction) {
     Engine eng(150);
-    Autobot a("Ratchet", 10, 180, 60, eng, 3, false);
+    Autobot a("Ratchet", 10, 180, 60, &eng, 3, false);
     EXPECT_EQ(a.getEnginePower(), 150);
     a.setEnginePower(777);
     EXPECT_EQ(a.getEnginePower(), 777);

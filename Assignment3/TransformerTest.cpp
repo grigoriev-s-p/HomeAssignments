@@ -10,7 +10,7 @@
 
 TEST(TransformerTest, ConstructorInitialization) {
     Engine eng(500);
-    Transformer t("Optimus", 10, 200, 50, eng);
+    Transformer t("Optimus", 10, 200, 50, &eng);
     EXPECT_EQ(t.getName(), "Optimus");
     EXPECT_EQ(t.getLevel(), 10);
     EXPECT_EQ(t.getStrength(), 200);
@@ -21,7 +21,7 @@ TEST(TransformerTest, ConstructorInitialization) {
 
 TEST(TransformerTest, SettersAndGetters) {
     Engine eng(150);
-    Transformer t("Bumblebee", 5, 120, 20, eng);
+    Transformer t("Bumblebee", 5, 120, 20, &eng);
     t.setName("NewName");
     t.setLevel(7);
     t.setStrength(180);
@@ -34,7 +34,7 @@ TEST(TransformerTest, SettersAndGetters) {
 
 TEST(TransformerTest, EnginePowerChange) {
     Engine eng(300);
-    Transformer t("Megatron", 9, 250, 80, eng);
+    Transformer t("Megatron", 9, 250, 80, &eng);
     EXPECT_EQ(t.getEnginePower(), 300);
     t.setEnginePower(900);
     EXPECT_EQ(t.getEnginePower(), 900);
@@ -42,7 +42,7 @@ TEST(TransformerTest, EnginePowerChange) {
 
 TEST(TransformerTest, ModelChange) {
     Engine eng(200);
-    Transformer t("Starscream", 6, 170, 60, eng);
+    Transformer t("Starscream", 6, 170, 60, &eng);
     EXPECT_EQ(t.getModel(), "standart");
     t.setModel("jet-mode");
     EXPECT_EQ(t.getModel(), "jet-mode");
@@ -50,7 +50,7 @@ TEST(TransformerTest, ModelChange) {
 
 TEST(TransformerTest, FireAndTransformNoCrash) {
     Engine eng(100);
-    Transformer t("Test", 1, 10, 10, eng);
+    Transformer t("Test", 1, 10, 10, &eng);
     EXPECT_NO_THROW(t.Fire());
     EXPECT_NO_THROW(t.Transform());
 }

@@ -10,7 +10,7 @@
 
 TEST(DesepticonTest, ConstructorInitialization){
     Engine eng(700);
-    Desepticon d("Megatron",20,500,150,eng,66,true);
+    Desepticon d("Megatron",20,500,150,&eng,66,true);
     EXPECT_EQ(d.getName(),"Megatron");
     EXPECT_EQ(d.getLevel(),20);
     EXPECT_EQ(d.getStrength(),500);
@@ -23,7 +23,7 @@ TEST(DesepticonTest, ConstructorInitialization){
 
 TEST(DesepticonTest, SettersAndGetters){
     Engine eng(300);
-    Desepticon d("Barricade",8,180,60,eng,21,false);
+    Desepticon d("Barricade",8,180,60,&eng,21,false);
     d.setDesepticonIndex(999);
     d.setIsEvil(true);
     EXPECT_EQ(d.getDesepticonIndex(),999);
@@ -32,7 +32,7 @@ TEST(DesepticonTest, SettersAndGetters){
 
 TEST(DesepticonTest, BaseClassMethodsWork){
     Engine eng(350);
-    Desepticon d("Starscream",14,260,90,eng,3,true);
+    Desepticon d("Starscream",14,260,90,&eng,3,true);
     d.setName("StarscreamV2");
     d.setLevel(15);
     d.setStrength(280);
@@ -49,13 +49,13 @@ TEST(DesepticonTest, BaseClassMethodsWork){
 
 TEST(DesepticonTest, DestroyNoCrash){
     Engine eng(100);
-    Desepticon d("TestCon",1,10,10,eng,0,false);
+    Desepticon d("TestCon",1,10,10,&eng,0,false);
     EXPECT_NO_THROW(d.destroy());
 }
 
 TEST(DesepticonTest, EngineInteraction){
     Engine eng(450);
-    Desepticon d("Shockwave",18,350,80,eng,10,true);
+    Desepticon d("Shockwave",18,350,80,&eng,10,true);
     EXPECT_EQ(d.getEnginePower(),450);
     d.setEnginePower(1111);
     EXPECT_EQ(d.getEnginePower(),1111);
