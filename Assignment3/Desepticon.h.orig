@@ -8,8 +8,7 @@
 #include "Transformer.h"
 #include <string>
 
-class Desepticon : public Transformer
-{
+class Desepticon : public Transformer {
 public:
     virtual void destroy();
 

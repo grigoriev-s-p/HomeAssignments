@@ -8,8 +8,7 @@
 #include "Transformer.h"
 #include <string>
 
-class Jettroid : public Transformer
-{
+class Jettroid : public Transformer {
 public:
     virtual void trade();
     void Fight() override;

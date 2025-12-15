@@ -7,63 +7,49 @@
 #include "TransformerModel.h"
 #include "Engine.h"
 
-void Transformer::Transform()
-{
+void Transformer::Transform() {
     std::cout << "Transform\n";
 }
 
-void Transformer::Fire()
-{
+void Transformer::Fire() {
     std::cout << "Fire\n";
 }
 
-void Transformer::setName(const std::string& name)
-{
+void Transformer::setName(const std::string& name) {
     _name = name;
 }
-std::string Transformer::getName()
-{
+std::string Transformer::getName() {
     return _name;
 }
-void Transformer::setLevel(int level)
-{
+void Transformer::setLevel(int level) {
     _level = level;
 }
-int Transformer::getLevel()
-{
+int Transformer::getLevel() {
     return _level;
 }
-void Transformer::setStrength(int strength)
-{
+void Transformer::setStrength(int strength) {
     _strength = strength;
 }
-int Transformer::getStrength()
-{
+int Transformer::getStrength() {
     return _strength;
 }
-void Transformer::setAmmo(int ammo)
-{
+void Transformer::setAmmo(int ammo) {
     _ammo = ammo;
 }
 
-int Transformer::getAmmo()
-{
+int Transformer::getAmmo() {
     return _ammo;
 }
-void Transformer::setEnginePower(int power)
-{
+void Transformer::setEnginePower(int power) {
     _engine->setPower(power);
 }
-int Transformer::getEnginePower()
-{
+int Transformer::getEnginePower() {
     return _engine->getPower();
 }
-void Transformer::setModel(std::string model)
-{
+void Transformer::setModel(std::string model) {
     _model.setModel(model);
 }
-std::string Transformer::getModel()
-{
+std::string Transformer::getModel() {
     return _model.getModel();
 }
 
@@ -73,24 +59,21 @@ Transformer::Transformer(std::string name, int level, int strength, int ammo, En
       _strength(strength),
       _ammo(ammo),
       _engine(eng),
-      _model("standart") {}
+      _model("standart"){}
 
 Transformer::Transformer()
     : _name("DefaultTransformer"),
-      _level(1),
-      _strength(50),
-      _ammo(10),
-      _engine(nullptr),
-      _model("standard")
-{
+    _level(1),
+    _strength(50),
+    _ammo(10),
+    _engine(nullptr),
+    _model("standard") {
 }
 
-std::ostream& operator<<(std::ostream& os, const Transformer& t)
-{
-    t.print(os);
+std::ostream& operator<<(std::ostream& os, const Transformer& t) {
+    t.print(os);  
     return os;
 }
-void Transformer::print(std::ostream& os) const
-{
+void Transformer::print(std::ostream& os) const {
     os << _name;
 }

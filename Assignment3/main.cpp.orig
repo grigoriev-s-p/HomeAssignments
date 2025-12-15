@@ -9,8 +9,7 @@
 #include "TransformerModel.h"
 #include <iostream>
 
-int main()
-{
+int main() {
     Engine coreEngine(100);
     TransformerModel model("Default");
     Autobot autobot("Optimus", 50, 10, 5, &coreEngine, 1, true);

@@ -9,8 +9,7 @@
 #include "TransformerModel.h"
 #include <sstream>
 
-TEST(JettroidTest, ConstructorInitialization)
-{
+TEST(JettroidTest, ConstructorInitialization) {
     Engine eng(500);
     Jettroid j("SkyJet", 12, 220, 70, &eng, 999, true);
     EXPECT_EQ(j.getName(), "SkyJet");
@@ -23,8 +22,7 @@ TEST(JettroidTest, ConstructorInitialization)
     EXPECT_EQ(j.getModel(), "standart");
 }
 
-TEST(JettroidTest, DefaultConstructor)
-{
+TEST(JettroidTest, DefaultConstructor) {
     Jettroid j;
     EXPECT_EQ(j.getName(), "DefaultAutobot");
     EXPECT_EQ(j.getLevel(), 1);
@@ -35,8 +33,7 @@ TEST(JettroidTest, DefaultConstructor)
     EXPECT_EQ(j.getModel(), "standard");
 }
 
-TEST(JettroidTest, SettersAndGetters)
-{
+TEST(JettroidTest, SettersAndGetters) {
     Engine eng(200);
     Jettroid j("Trader", 6, 140, 30, &eng, 50, false);
     j.setMoney(777);
@@ -45,8 +42,7 @@ TEST(JettroidTest, SettersAndGetters)
     EXPECT_TRUE(j.getIsRich());
 }
 
-TEST(JettroidTest, BaseClassMethodsWork)
-{
+TEST(JettroidTest, BaseClassMethodsWork) {
     Engine eng(300);
     Jettroid j("Aero", 10, 180, 55, &eng, 100, false);
     j.setName("AeroX");
@@ -63,8 +59,7 @@ TEST(JettroidTest, BaseClassMethodsWork)
     EXPECT_EQ(j.getModel(), "flight-mode");
 }
 
-TEST(JettroidTest, VirtualMethods)
-{
+TEST(JettroidTest, VirtualMethods) {
     Engine eng(200);
     Jettroid j("JetMaster", 14, 200, 70, &eng, 50, true);
     EXPECT_NO_THROW(j.Fight());
@@ -73,15 +68,13 @@ TEST(JettroidTest, VirtualMethods)
     EXPECT_NO_THROW(j.trade());
 }
 
-TEST(JettroidTest, TradeNoCrash)
-{
+TEST(JettroidTest, TradeNoCrash) {
     Engine eng(100);
     Jettroid j("TestJet", 1, 10, 10, &eng, 0, false);
     EXPECT_NO_THROW(j.trade());
 }
 
-TEST(JettroidTest, EngineInteraction)
-{
+TEST(JettroidTest, EngineInteraction) {
     Engine eng(250);
     Jettroid j("JetPower", 15, 240, 90, &eng, 300, false);
     EXPECT_EQ(j.getEnginePower(), 250);
@@ -89,8 +82,7 @@ TEST(JettroidTest, EngineInteraction)
     EXPECT_EQ(j.getEnginePower(), 999);
 }
 
-TEST(JettroidTest, OutputOperator)
-{
+TEST(JettroidTest, OutputOperator) {
     Engine eng(100);
     Jettroid j("SkyJet", 12, 220, 70, &eng, 999, true);
     std::ostringstream oss;

@@ -6,11 +6,10 @@
 #ifndef ENGINE
 #define ENGINE
 #include <string>
-class Engine
-{
+class Engine {
 public:
     Engine(int power);
-
+    
     void setPower(int newPower);
 
     int getPower();
