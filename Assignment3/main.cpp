@@ -4,6 +4,7 @@
  * fourth task
 */
 #include "Transformer.h"
+#include "Autobot.h"
 #include "Engine.h"
 #include "TransformerModel.h"
 #include <iostream>
@@ -11,7 +12,7 @@
 int main() {
     Engine coreEngine(100);
     TransformerModel model("Default");
-    Transformer autobot("Optimus", 50, 10, 5, &coreEngine);
+    Autobot autobot("Optimus", 50, 10, 5, &coreEngine, 1, true);
     autobot.setModel(model.getModel());
     std::cout << "Name: " << autobot.getName() << "\n";
     std::cout << "Level: " << autobot.getLevel() << "\n";

@@ -10,7 +10,9 @@
 
 class Autobot : public Transformer {
 public:
-    void scan();
+    virtual void scan();
+
+    void Fight() override;
 
     int getAutobotIndex();
     void setAutobotIndex(int autobotIndex);
@@ -18,6 +20,8 @@ public:
     void setIsPrime(bool isPrime);
 
     Autobot(std::string name, int level, int strength, int ammo, Engine* eng, int autobotIndex, bool isPrime);
+    Autobot();
+    void print(std::ostream& os) const override;
 
 private:
     int _autobotIndex;

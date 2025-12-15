@@ -7,12 +7,12 @@
 #include "TransformerModel.h"
 #include "Engine.h"
 
-void Transformer::Fire() {
-    return;
+void Transformer::Transform() {
+    std::cout << "Transform\n";
 }
 
-void Transformer::Transform() {
-    return;
+void Transformer::Fire() {
+    std::cout << "Fire\n";
 }
 
 void Transformer::setName(const std::string& name) {
@@ -61,4 +61,19 @@ Transformer::Transformer(std::string name, int level, int strength, int ammo, En
       _engine(eng),
       _model("standart"){}
 
-Transformer::~Transformer() {};
+Transformer::Transformer()
+    : _name("DefaultTransformer"),
+    _level(1),
+    _strength(50),
+    _ammo(10),
+    _engine(nullptr),
+    _model("standard") {
+}
+
+std::ostream& operator<<(std::ostream& os, const Transformer& t) {
+    t.print(os);  
+    return os;
+}
+void Transformer::print(std::ostream& os) const {
+    os << _name;
+}

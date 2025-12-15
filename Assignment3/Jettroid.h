@@ -10,7 +10,8 @@
 
 class Jettroid : public Transformer {
 public:
-    void trade();
+    virtual void trade();
+    void Fight() override;
 
     int getMoney();
     void setMoney(int money);
@@ -18,6 +19,8 @@ public:
     void setIsRich(bool isRich);
 
     Jettroid(std::string name, int level, int strength, int ammo, Engine*eng, int money, bool isRich);
+    Jettroid();
+    void print(std::ostream& os) const override;
 
 private:
     int _money;

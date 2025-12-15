@@ -12,8 +12,10 @@
 
 class Transformer {
 public:
-    void Transform();
-    void Fire();
+    virtual void Fight() = 0;
+
+    virtual void Transform();
+    virtual void Fire();
 
     void setName(const std::string& name);
     std::string getName();
@@ -29,8 +31,11 @@ public:
     std::string getModel();
 
     Transformer(std::string name, int level, int strength, int ammo, Engine* eng);
-    ~Transformer();
+    Transformer();
 
+    virtual void print(std::ostream& os) const;
+    virtual ~Transformer() = default;
+    
 private:
     std::string _name;
     int _level;
@@ -38,5 +43,9 @@ private:
     int _ammo;
     Engine* _engine;
     TransformerModel _model;
+
 };
+
+std::ostream& operator<<(std::ostream& os, const Transformer& t);
+
 #endif

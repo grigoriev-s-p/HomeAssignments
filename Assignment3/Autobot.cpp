@@ -6,8 +6,12 @@
 #include "Autobot.h"
 #include <iostream>
 
-void Autobot::scan() {};
-
+void Autobot::scan() {
+    std::cout << "Autobot scan\n";
+}
+void Autobot::Fight() {
+    std::cout << "Autobot Fight\n";
+}
 int Autobot::getAutobotIndex() {
     return _autobotIndex;
 };
@@ -24,3 +28,10 @@ Autobot::Autobot(std::string name, int level, int strength, int ammo, Engine* en
     : Transformer(name, level, strength, ammo, eng),
     _autobotIndex(autobotIndex),
     _isPrime(isPrime) {}
+Autobot::Autobot()
+    : Transformer("DefaultAutobot", 1, 50, 10, nullptr), 
+    _autobotIndex(0), _isPrime(false) {
+}
+void Autobot::print(std::ostream& os) const {
+    Transformer::print(os);
+}

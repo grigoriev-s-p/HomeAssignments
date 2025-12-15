@@ -6,8 +6,12 @@
 #include "Jettroid.h"
 #include <iostream>
 
-void Jettroid::trade() {};
-
+void Jettroid::trade() {
+    std::cout << "Jettroid trade\n";
+}
+void Jettroid::Fight() {
+    std::cout << "Jettroid Fight\n";
+}
 int Jettroid::getMoney() {
     return _money;
 };
@@ -24,6 +28,12 @@ Jettroid::Jettroid(std::string name, int level, int strength, int ammo, Engine* 
     : Transformer(name, level, strength, ammo, eng),
     _money(money),
     _isRich(isRich) {}
-
+Jettroid::Jettroid()
+    : Transformer("DefaultAutobot", 1, 50, 10, nullptr),
+    _money(0), _isRich(false) {
+}
+void Jettroid::print(std::ostream& os) const {
+    Transformer::print(os);
+}
 
 

@@ -7,56 +7,89 @@
 #include "Jettroid.h"
 #include "Engine.h"
 #include "TransformerModel.h"
+#include <sstream>
 
-TEST(JettroidTest, ConstructorInitialization){
+TEST(JettroidTest, ConstructorInitialization) {
     Engine eng(500);
-    Jettroid j("SkyJet",12,220,70,&eng,999,true);
-    EXPECT_EQ(j.getName(),"SkyJet");
-    EXPECT_EQ(j.getLevel(),12);
-    EXPECT_EQ(j.getStrength(),220);
-    EXPECT_EQ(j.getAmmo(),70);
-    EXPECT_EQ(j.getEnginePower(),500);
-    EXPECT_EQ(j.getMoney(),999);
+    Jettroid j("SkyJet", 12, 220, 70, &eng, 999, true);
+    EXPECT_EQ(j.getName(), "SkyJet");
+    EXPECT_EQ(j.getLevel(), 12);
+    EXPECT_EQ(j.getStrength(), 220);
+    EXPECT_EQ(j.getAmmo(), 70);
+    EXPECT_EQ(j.getEnginePower(), 500);
+    EXPECT_EQ(j.getMoney(), 999);
     EXPECT_TRUE(j.getIsRich());
-    EXPECT_EQ(j.getModel(),"standart");
+    EXPECT_EQ(j.getModel(), "standart");
 }
 
-TEST(JettroidTest, SettersAndGetters){
+TEST(JettroidTest, DefaultConstructor) {
+    Jettroid j;
+    EXPECT_EQ(j.getName(), "DefaultAutobot");
+    EXPECT_EQ(j.getLevel(), 1);
+    EXPECT_EQ(j.getStrength(), 50);
+    EXPECT_EQ(j.getAmmo(), 10);
+    EXPECT_EQ(j.getMoney(), 0);
+    EXPECT_FALSE(j.getIsRich());
+    EXPECT_EQ(j.getModel(), "standard");
+}
+
+TEST(JettroidTest, SettersAndGetters) {
     Engine eng(200);
-    Jettroid j("Trader",6,140,30,&eng,50,false);
+    Jettroid j("Trader", 6, 140, 30, &eng, 50, false);
     j.setMoney(777);
     j.setIsRich(true);
-    EXPECT_EQ(j.getMoney(),777);
+    EXPECT_EQ(j.getMoney(), 777);
     EXPECT_TRUE(j.getIsRich());
 }
 
-TEST(JettroidTest, BaseClassMethodsWork){
+TEST(JettroidTest, BaseClassMethodsWork) {
     Engine eng(300);
-    Jettroid j("Aero",10,180,55,&eng,100,false);
+    Jettroid j("Aero", 10, 180, 55, &eng, 100, false);
     j.setName("AeroX");
     j.setLevel(11);
     j.setStrength(190);
     j.setAmmo(60);
     j.setEnginePower(800);
     j.setModel("flight-mode");
-    EXPECT_EQ(j.getName(),"AeroX");
-    EXPECT_EQ(j.getLevel(),11);
-    EXPECT_EQ(j.getStrength(),190);
-    EXPECT_EQ(j.getAmmo(),60);
-    EXPECT_EQ(j.getEnginePower(),800);
-    EXPECT_EQ(j.getModel(),"flight-mode");
+    EXPECT_EQ(j.getName(), "AeroX");
+    EXPECT_EQ(j.getLevel(), 11);
+    EXPECT_EQ(j.getStrength(), 190);
+    EXPECT_EQ(j.getAmmo(), 60);
+    EXPECT_EQ(j.getEnginePower(), 800);
+    EXPECT_EQ(j.getModel(), "flight-mode");
 }
 
-TEST(JettroidTest, TradeNoCrash){
-    Engine eng(100);
-    Jettroid j("TestJet",1,10,10,&eng,0,false);
+TEST(JettroidTest, VirtualMethods) {
+    Engine eng(200);
+    Jettroid j("JetMaster", 14, 200, 70, &eng, 50, true);
+    EXPECT_NO_THROW(j.Fight());
+    EXPECT_NO_THROW(j.Fire());
+    EXPECT_NO_THROW(j.Transform());
     EXPECT_NO_THROW(j.trade());
 }
 
-TEST(JettroidTest, EngineInteraction){
+TEST(JettroidTest, TradeNoCrash) {
+    Engine eng(100);
+    Jettroid j("TestJet", 1, 10, 10, &eng, 0, false);
+    EXPECT_NO_THROW(j.trade());
+}
+
+TEST(JettroidTest, EngineInteraction) {
     Engine eng(250);
-    Jettroid j("JetPower",15,240,90,&eng,300,false);
-    EXPECT_EQ(j.getEnginePower(),250);
+    Jettroid j("JetPower", 15, 240, 90, &eng, 300, false);
+    EXPECT_EQ(j.getEnginePower(), 250);
     j.setEnginePower(999);
-    EXPECT_EQ(j.getEnginePower(),999);
+    EXPECT_EQ(j.getEnginePower(), 999);
+}
+
+TEST(JettroidTest, OutputOperator) {
+    Engine eng(100);
+    Jettroid j("SkyJet", 12, 220, 70, &eng, 999, true);
+    std::ostringstream oss;
+    oss << j;  // тест оператора <<
+    std::string output = oss.str();
+
+    EXPECT_NE(output.find("SkyJet"), std::string::npos);
+    EXPECT_NE(output.find("money=999"), std::string::npos);
+    EXPECT_NE(output.find("isRich=true"), std::string::npos);
 }
