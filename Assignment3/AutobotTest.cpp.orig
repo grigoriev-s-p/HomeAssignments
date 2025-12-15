@@ -9,8 +9,7 @@
 #include "TransformerModel.h"
 #include <sstream>
 
-TEST(AutobotTest, ConstructorInitialization)
-{
+TEST(AutobotTest, ConstructorInitialization) {
     Engine eng(600);
     Autobot a("Optimus Prime", 15, 300, 100, &eng, 1, true);
     EXPECT_EQ(a.getName(), "Optimus Prime");
@@ -23,8 +22,7 @@ TEST(AutobotTest, ConstructorInitialization)
     EXPECT_EQ(a.getModel(), "standart");
 }
 
-TEST(AutobotTest, DefaultConstructor)
-{
+TEST(AutobotTest, DefaultConstructor) {
     Autobot a;
     EXPECT_EQ(a.getName(), "DefaultAutobot");
     EXPECT_EQ(a.getLevel(), 1);
@@ -35,8 +33,7 @@ TEST(AutobotTest, DefaultConstructor)
     EXPECT_EQ(a.getModel(), "standard");
 }
 
-TEST(AutobotTest, SettersAndGetters)
-{
+TEST(AutobotTest, SettersAndGetters) {
     Engine eng(300);
     Autobot a("Bee", 7, 150, 40, &eng, 12, false);
     a.setAutobotIndex(99);
@@ -45,8 +42,7 @@ TEST(AutobotTest, SettersAndGetters)
     EXPECT_TRUE(a.getIsPrime());
 }
 
-TEST(AutobotTest, BaseClassMethodsWork)
-{
+TEST(AutobotTest, BaseClassMethodsWork) {
     Engine eng(200);
     Autobot a("Ironhide", 8, 220, 70, &eng, 5, false);
     a.setName("Ironhide V2");
@@ -63,8 +59,7 @@ TEST(AutobotTest, BaseClassMethodsWork)
     EXPECT_EQ(a.getModel(), "combat-mode");
 }
 
-TEST(AutobotTest, VirtualMethods)
-{
+TEST(AutobotTest, VirtualMethods) {
     Engine eng(200);
     Autobot a("Optimus", 10, 200, 50, &eng, 1, true);
     EXPECT_NO_THROW(a.Fight());
@@ -72,15 +67,13 @@ TEST(AutobotTest, VirtualMethods)
     EXPECT_NO_THROW(a.Transform());
 }
 
-TEST(AutobotTest, ScanDoesNotCrash)
-{
+TEST(AutobotTest, ScanDoesNotCrash) {
     Engine eng(100);
     Autobot a("TestBot", 1, 10, 10, &eng, 0, false);
     EXPECT_NO_THROW(a.scan());
 }
 
-TEST(AutobotTest, EngineInteraction)
-{
+TEST(AutobotTest, EngineInteraction) {
     Engine eng(150);
     Autobot a("Ratchet", 10, 180, 60, &eng, 3, false);
     EXPECT_EQ(a.getEnginePower(), 150);
@@ -88,8 +81,7 @@ TEST(AutobotTest, EngineInteraction)
     EXPECT_EQ(a.getEnginePower(), 777);
 }
 
-TEST(AutobotTest, OutputOperator)
-{
+TEST(AutobotTest, OutputOperator) {
     Engine eng(100);
     Autobot a("Bumblebee", 5, 120, 20, &eng, 2, false);
     std::ostringstream oss;

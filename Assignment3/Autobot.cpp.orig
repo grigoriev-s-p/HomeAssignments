@@ -6,40 +6,32 @@
 #include "Autobot.h"
 #include <iostream>
 
-void Autobot::scan()
-{
+void Autobot::scan() {
     std::cout << "Autobot scan\n";
 }
-void Autobot::Fight()
-{
+void Autobot::Fight() {
     std::cout << "Autobot Fight\n";
 }
-int Autobot::getAutobotIndex()
-{
+int Autobot::getAutobotIndex() {
     return _autobotIndex;
 };
-void Autobot::setAutobotIndex(int autobotIndex)
-{
+void Autobot::setAutobotIndex(int autobotIndex) {
     _autobotIndex = autobotIndex;
 };
-bool Autobot::getIsPrime()
-{
+bool Autobot::getIsPrime() {
     return _isPrime;
 };
-void Autobot::setIsPrime(bool isPrime)
-{
+void Autobot::setIsPrime(bool isPrime) {
     _isPrime = isPrime;
 };
 Autobot::Autobot(std::string name, int level, int strength, int ammo, Engine* eng, int autobotIndex, bool isPrime)
     : Transformer(name, level, strength, ammo, eng),
-      _autobotIndex(autobotIndex),
-      _isPrime(isPrime) {}
+    _autobotIndex(autobotIndex),
+    _isPrime(isPrime) {}
 Autobot::Autobot()
-    : Transformer("DefaultAutobot", 1, 50, 10, nullptr),
-      _autobotIndex(0), _isPrime(false)
-{
+    : Transformer("DefaultAutobot", 1, 50, 10, nullptr), 
+    _autobotIndex(0), _isPrime(false) {
 }
-void Autobot::print(std::ostream& os) const
-{
+void Autobot::print(std::ostream& os) const {
     Transformer::print(os);
 }

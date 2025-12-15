@@ -14,8 +14,7 @@
 #include <string>
 #include <sstream>
 
-TEST(TransformerTest, ConstructorInitialization)
-{
+TEST(TransformerTest, ConstructorInitialization) {
     Engine eng(500);
     Transformer* t = new Autobot("Optimus", 10, 200, 50, &eng, 1, true);
     EXPECT_EQ(t->getName(), "Optimus");
@@ -27,8 +26,7 @@ TEST(TransformerTest, ConstructorInitialization)
     delete t;
 }
 
-TEST(TransformerTest, SettersAndGetters)
-{
+TEST(TransformerTest, SettersAndGetters) {
     Engine eng(150);
     Autobot t("Bumblebee", 5, 120, 20, &eng, 1, true);
     t.setName("NewName");
@@ -41,8 +39,7 @@ TEST(TransformerTest, SettersAndGetters)
     EXPECT_EQ(t.getAmmo(), 99);
 }
 
-TEST(TransformerTest, EnginePowerChange)
-{
+TEST(TransformerTest, EnginePowerChange) {
     Engine eng(300);
     Autobot t("Megatron", 9, 250, 80, &eng, 2, false);
     EXPECT_EQ(t.getEnginePower(), 300);
@@ -50,8 +47,7 @@ TEST(TransformerTest, EnginePowerChange)
     EXPECT_EQ(t.getEnginePower(), 900);
 }
 
-TEST(TransformerTest, ModelChange)
-{
+TEST(TransformerTest, ModelChange) {
     Engine eng(200);
     Autobot t("Starscream", 6, 170, 60, &eng, 3, false);
     EXPECT_EQ(t.getModel(), "standart");
@@ -59,16 +55,14 @@ TEST(TransformerTest, ModelChange)
     EXPECT_EQ(t.getModel(), "jet-mode");
 }
 
-TEST(TransformerTest, FireAndTransformNoCrash)
-{
+TEST(TransformerTest, FireAndTransformNoCrash) {
     Engine eng(100);
     Autobot t("Test", 1, 10, 10, &eng, 0, true);
     EXPECT_NO_THROW(t.Fire());
     EXPECT_NO_THROW(t.Transform());
 }
 
-TEST(TransformerTest, VirtualMethodsDirectCall)
-{
+TEST(TransformerTest, VirtualMethodsDirectCall) {
     Engine eng(100);
     Autobot a("Optimus", 10, 200, 50, &eng, 1, true);
     Desepticon d("Megatron", 20, 500, 150, &eng, 2, true);
@@ -90,8 +84,7 @@ TEST(TransformerTest, VirtualMethodsDirectCall)
     EXPECT_NO_THROW(j.trade());
 }
 
-TEST(TransformerTest, VirtualMethodsPointerCall)
-{
+TEST(TransformerTest, VirtualMethodsPointerCall) {
     Engine eng(100);
     Transformer* ptrA = new Autobot("Optimus", 10, 200, 50, &eng, 1, true);
     Transformer* ptrD = new Desepticon("Megatron", 20, 500, 150, &eng, 2, true);
@@ -114,8 +107,7 @@ TEST(TransformerTest, VirtualMethodsPointerCall)
     delete ptrJ;
 }
 
-TEST(TransformerTest, VirtualMethodsVectorCall)
-{
+TEST(TransformerTest, VirtualMethodsVectorCall) {
     Engine eng(100);
     std::vector<Transformer*> transformers;
 
@@ -134,8 +126,7 @@ TEST(TransformerTest, VirtualMethodsVectorCall)
     transformers.push_back(new Jettroid("J2", 2, 22, 5, &eng, 200, false));
     transformers.push_back(new Jettroid("J3", 3, 32, 5, &eng, 300, true));
 
-    for (auto t : transformers)
-    {
+    for (auto t : transformers) {
         EXPECT_NO_THROW(t->Transform());
         EXPECT_NO_THROW(t->Fire());
         EXPECT_NO_THROW(t->Fight());
@@ -144,8 +135,7 @@ TEST(TransformerTest, VirtualMethodsVectorCall)
     for (auto t : transformers) delete t;
 }
 
-TEST(TransformerTest, OutputOperator)
-{
+TEST(TransformerTest, OutputOperator) {
     Engine eng(100);
     Autobot a("Optimus", 10, 200, 50, &eng, 1, true);
     std::ostringstream oss;

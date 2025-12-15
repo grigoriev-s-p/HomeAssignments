@@ -9,8 +9,7 @@
 #include "TransformerModel.h"
 #include <sstream>
 
-TEST(DesepticonTest, ConstructorInitialization)
-{
+TEST(DesepticonTest, ConstructorInitialization) {
     Engine eng(700);
     Desepticon d("Megatron", 20, 500, 150, &eng, 66, true);
     EXPECT_EQ(d.getName(), "Megatron");
@@ -23,8 +22,7 @@ TEST(DesepticonTest, ConstructorInitialization)
     EXPECT_EQ(d.getModel(), "standart");
 }
 
-TEST(DesepticonTest, DefaultConstructor)
-{
+TEST(DesepticonTest, DefaultConstructor) {
     Desepticon d;
     EXPECT_EQ(d.getName(), "DefaultAutobot");
     EXPECT_EQ(d.getLevel(), 1);
@@ -35,8 +33,7 @@ TEST(DesepticonTest, DefaultConstructor)
     EXPECT_EQ(d.getModel(), "standard");
 }
 
-TEST(DesepticonTest, SettersAndGetters)
-{
+TEST(DesepticonTest, SettersAndGetters) {
     Engine eng(300);
     Desepticon d("Barricade", 8, 180, 60, &eng, 21, false);
     d.setDesepticonIndex(999);
@@ -45,8 +42,7 @@ TEST(DesepticonTest, SettersAndGetters)
     EXPECT_TRUE(d.getIsEvil());
 }
 
-TEST(DesepticonTest, BaseClassMethodsWork)
-{
+TEST(DesepticonTest, BaseClassMethodsWork) {
     Engine eng(350);
     Desepticon d("Starscream", 14, 260, 90, &eng, 3, true);
     d.setName("StarscreamV2");
@@ -63,8 +59,7 @@ TEST(DesepticonTest, BaseClassMethodsWork)
     EXPECT_EQ(d.getModel(), "jet-mode");
 }
 
-TEST(DesepticonTest, VirtualMethods)
-{
+TEST(DesepticonTest, VirtualMethods) {
     Engine eng(200);
     Desepticon d("Devastator", 12, 300, 70, &eng, 5, true);
     EXPECT_NO_THROW(d.Fight());
@@ -73,8 +68,7 @@ TEST(DesepticonTest, VirtualMethods)
     EXPECT_NO_THROW(d.destroy());
 }
 
-TEST(DesepticonTest, EngineInteraction)
-{
+TEST(DesepticonTest, EngineInteraction) {
     Engine eng(450);
     Desepticon d("Shockwave", 18, 350, 80, &eng, 10, true);
     EXPECT_EQ(d.getEnginePower(), 450);
@@ -82,8 +76,7 @@ TEST(DesepticonTest, EngineInteraction)
     EXPECT_EQ(d.getEnginePower(), 1111);
 }
 
-TEST(DesepticonTest, OutputOperator)
-{
+TEST(DesepticonTest, OutputOperator) {
     Engine eng(100);
     Desepticon d("Starscream", 6, 170, 60, &eng, 4, false);
     std::ostringstream oss;
