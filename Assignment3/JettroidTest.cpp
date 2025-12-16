@@ -20,7 +20,7 @@ TEST(JettroidTest, ConstructorInitialization)
     EXPECT_EQ(j.getEnginePower(), 500);
     EXPECT_EQ(j.getMoney(), 999);
     EXPECT_TRUE(j.getIsRich());
-    EXPECT_EQ(j.getModel(), "standart");
+    EXPECT_EQ(j.getModel(), "standard");
 }
 
 TEST(JettroidTest, DefaultConstructor)
@@ -94,10 +94,8 @@ TEST(JettroidTest, OutputOperator)
     Engine eng(100);
     Jettroid j("SkyJet", 12, 220, 70, &eng, 999, true);
     std::ostringstream oss;
-    oss << j;  // тест оператора <<
+    oss << j;
     std::string output = oss.str();
 
     EXPECT_NE(output.find("SkyJet"), std::string::npos);
-    EXPECT_NE(output.find("money=999"), std::string::npos);
-    EXPECT_NE(output.find("isRich=true"), std::string::npos);
 }

@@ -23,7 +23,7 @@ TEST(TransformerTest, ConstructorInitialization)
     EXPECT_EQ(t->getStrength(), 200);
     EXPECT_EQ(t->getAmmo(), 50);
     EXPECT_EQ(t->getEnginePower(), 500);
-    EXPECT_EQ(t->getModel(), "standart");
+    EXPECT_EQ(t->getModel(), "standard");
     delete t;
 }
 
@@ -54,7 +54,7 @@ TEST(TransformerTest, ModelChange)
 {
     Engine eng(200);
     Autobot t("Starscream", 6, 170, 60, &eng, 3, false);
-    EXPECT_EQ(t.getModel(), "standart");
+    EXPECT_EQ(t.getModel(), "standard");
     t.setModel("jet-mode");
     EXPECT_EQ(t.getModel(), "jet-mode");
 }

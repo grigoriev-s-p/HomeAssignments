@@ -73,7 +73,7 @@ Transformer::Transformer(std::string name, int level, int strength, int ammo, En
       _strength(strength),
       _ammo(ammo),
       _engine(eng),
-      _model("standart") {}
+      _model("standard") {}
 
 Transformer::Transformer()
     : _name("DefaultTransformer"),
