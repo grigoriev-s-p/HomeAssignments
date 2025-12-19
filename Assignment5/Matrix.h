@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fifth task
+*/
 #ifndef MATRIX_H
 #define MATRIX_H
 

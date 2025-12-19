@@ -1,3 +1,9 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fifth task
+*/
+
 #include <gtest/gtest.h>
 
 #include "Matrix.h"

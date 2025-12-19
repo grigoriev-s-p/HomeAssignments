@@ -1,3 +1,8 @@
+/*
+ * Sergey Grigoriev
+ * st142081@student.spbu.ru
+ * fifth task
+*/
 #include "Rational.h"
 #include <stdexcept>
 #include <numeric>
